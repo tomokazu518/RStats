@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 RとRStudioのインストール | ちょっとニッチなR入門1</title>
+  <meta name="description" content="Chapter 2 RとRStudioのインストール | ちょっとニッチなR入門1" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 RとRStudioのインストール | ちょっとニッチなR入門1" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 RとRStudioのインストール | ちょっとニッチなR入門1" />
+  
+  
+  
+
+<meta name="author" content="Tomokazu NOMURA" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="rにおけるオブジェクト.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ちょっとニッチなR入門</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
+<li class="chapter" data-level="2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html"><i class="fa fa-check"></i><b>2</b> RとRStudioのインストール</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rが使えるパソコン"><i class="fa fa-check"></i><b>2.1</b> Rが使えるパソコン</a></li>
+<li class="chapter" data-level="2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#インストール方法"><i class="fa fa-check"></i><b>2.2</b> インストール方法</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#macにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.1</b> Macにインストールする場合の補足</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac"><i class="fa fa-check"></i><b>2.2.2</b> Homebrewを使ってインストールする(Mac)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.3</b> Windowsにインストールする場合の補足</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioの画面"><i class="fa fa-check"></i><b>2.3</b> RStudioの画面</a></li>
+<li class="chapter" data-level="2.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#ヘルプの参照"><i class="fa fa-check"></i><b>2.4</b> ヘルプの参照</a></li>
+<li class="chapter" data-level="2.5" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#チュートリアルの実行"><i class="fa fa-check"></i><b>2.5</b> チュートリアルの実行</a></li>
+<li class="chapter" data-level="2.6" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#パッケージのインストール"><i class="fa fa-check"></i><b>2.6</b> パッケージのインストール</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html"><i class="fa fa-check"></i><b>3</b> Rにおけるオブジェクト</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#数値と文字列"><i class="fa fa-check"></i><b>3.1</b> 数値と文字列</a></li>
+<li class="chapter" data-level="3.2" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
+<li class="chapter" data-level="3.3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ファクター"><i class="fa fa-check"></i><b>3.3</b> ファクター</a></li>
+<li class="chapter" data-level="3.4" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#データフレーム"><i class="fa fa-check"></i><b>3.4</b> データフレーム</a></li>
+<li class="chapter" data-level="3.5" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数"><i class="fa fa-check"></i><b>3.5</b> 関数</a></li>
+<li class="chapter" data-level="3.6" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数の自作"><i class="fa fa-check"></i><b>3.6</b> 関数の自作</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html"><i class="fa fa-check"></i><b>4</b> データの要約1（記述統計量）</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#データの概観"><i class="fa fa-check"></i><b>4.1</b> データの概観</a></li>
+<li class="chapter" data-level="4.2" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#要約統計表の作成"><i class="fa fa-check"></i><b>4.2</b> 要約統計表の作成</a></li>
+<li class="chapter" data-level="4.3" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#相関表"><i class="fa fa-check"></i><b>4.3</b> 相関表</a></li>
+<li class="chapter" data-level="4.4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#グループ分け"><i class="fa fa-check"></i><b>4.4</b> グループ分け</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#データフレームを分割する"><i class="fa fa-check"></i><b>4.4.1</b> データフレームを分割する</a></li>
+<li class="chapter" data-level="4.4.2" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#group_byを使う"><i class="fa fa-check"></i><b>4.4.2</b> group_by()を使う</a></li>
+<li class="chapter" data-level="4.4.3" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#xtabsを使う"><i class="fa fa-check"></i><b>4.4.3</b> xtabs()を使う</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html"><i class="fa fa-check"></i><b>5</b> データの要約2(グラフの作成)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html#ヒストグラム"><i class="fa fa-check"></i><b>5.1</b> ヒストグラム</a></li>
+<li class="chapter" data-level="5.2" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html#箱ひげ図"><i class="fa fa-check"></i><b>5.2</b> 箱ひげ図</a></li>
+<li class="chapter" data-level="5.3" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html#散布図"><i class="fa fa-check"></i><b>5.3</b> 散布図</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ちょっとニッチなR入門1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rとrstudioのインストール" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> RとRStudioのインストール<a href="rとrstudioのインストール.html#rとrstudioのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rが使えるパソコン" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Rが使えるパソコン<a href="rとrstudioのインストール.html#rが使えるパソコン" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rはオープン・ソースで開発されており，Windows，Mac，Linuxのいずれでも利用可能。Rそのものは性能の低いマシンでも十分に動作する(ただし，分析するデータの規模や用いる分析手法によってはある程度高性能なパソコンが必要になるかもしれない)。また，RStudioはRを便利に使うために必須と言えるソフトウェア。</p>
+<p>これからパソコンを用意するという人には，Mac &gt; Linux &gt; Windowsの順でおすすめする。(わたしが)Rを使っていてトラブルが少ないのはMac。LinuxもMacと共通の部分が多く安定しているが，そもそも一般の人にLinuxは馴染みがないので，R以外の用途を考えると選択肢からは外れそう。Windowsは最初に少し設定が必要なのと，フォルダやファイル名に注意して利用する必要がある。といっても，いま使っているPCがWindowsであれば，買い換えるほどのものでもない。</p>
+<p>Windowsの場合には，WSLという仮想環境のLinuxにRをインストールして使うことも可能。わたしは，WSLにRとRStudio Serverをインストールして，ChromeなどのブラウザでRStudioを使っている(快適)。</p>
+</div>
+<div id="インストール方法" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> インストール方法<a href="rとrstudioのインストール.html#インストール方法" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>インストールの方法については，<a href="https://yukiyanai.github.io/jp/resources/">高知工科大学の矢内先生のホームページ</a>に，これ以上丁寧に説明することはできないというくらいに丁寧な解説スライドが公開されている。Ubuntu，Mac，Windows版があるので，これらを参考にインストールしてほしい。ただし，うまくいかなくても矢内先生に直接質問のメールを送ったりはしないこと。</p>
+<div id="macにインストールする場合の補足" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Macにインストールする場合の補足<a href="rとrstudioのインストール.html#macにインストールする場合の補足" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>プログラミング用フォント，XQuartzのインストールはとりあえず飛ばしてもかまわない。</li>
+<li>XCodeをインストールするとかなりのディスク容量を消費する。必要なのはXCodeに含まれるCommand Line Toolsなので，ディスク容量に余裕がない場合にはCommand Line Toolsだけをインストールすることもできる。ターミナルで次のコマンドを実行することでインストールできる。</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="rとrstudioのインストール.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code></pre></div>
+</div>
+<div id="homebrewを使ってインストールするmac" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Homebrewを使ってインストールする(Mac)<a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Homebrewを使えば，簡単にインストールできる。
+<ul>
+<li>HomebrewはMacのパッケージマネージャ。ソフトのインストールやアップグレードの管理が容易にできるようになるので，おすすめ。</li>
+<li>Homebrewを使えばRとRStudioも簡単にインストールできる。</li>
+<li>Homebrewをインストールしていない人は，ターミナルで以下のコマンドを実行すればインストール可能(詳細は，<a href="https://brew.sh/index_ja">ここ</a>を参照)。</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="rとrstudioのインストール.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">&quot;</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">&quot;</span></span></code></pre></div>
+<ul>
+<li>Homebrewをインストールすれば，Command Line Toolsもインストールされる。</li>
+<li>Homebrewがインストールできたら，ターミナルで以下のコマンドを実行することでRとRStudioをインストールできる。</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="rとrstudioのインストール.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install r rstudio</span></code></pre></div></li>
+</ul>
+</div>
+<div id="windowsにインストールする場合の補足" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Windowsにインストールする場合の補足<a href="rとrstudioのインストール.html#windowsにインストールする場合の補足" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>プログラミング用フォントのインストールはとりあえず飛ばしてもかまわない。</li>
+<li>RtoolsもとりあえずなくてもOk(パッケージをソースコードからビルドする場合に必要だが，ほとんどのパッケージはビルド済みのバイナリが提供されている)。</li>
+<li>全角文字(とくに全角スペース)が含まれるホーム・フォルダ名の問題は，Rに限らずさまざまなソフトで問題を引き起こすので，対処しておく必要がある。
+<ul>
+<li>ただし，最近ではMicrosoftアカウントでWindowsをセットアップすると，Microsoftアカウント(メールアドレス)の最初の5文字がホーム・フォルダ名になるので，通常は問題ないはず。</li>
+<li>そのため，ユーザー名に漢字などの全角文字が使われている場合は，いっそのことOSを初期化してMicrosoftアカウントを使って再セットアップした方がいいかもしれない。</li>
+<li>初期化したくない場合には，矢内先生の資料の対処法その3(シンボリックリンク作成)が良いと思う。</li>
+</ul></li>
+<li>One Drive問題にも対処が必要。
+<ul>
+<li>Rはパッケージをドキュメント・フォルダにインストールする。ドキュメント・フォルダがOneDriveに管理されていると，フォルダ名に全角文字(カタカナで”ドキュメント”)が含まれるためパッケージを読み込むことができなくなる。</li>
+<li>多くの学生はOffice 365のOneDriveを使っていると思うので，矢内先生の資料の対処法その3で，パッケージをインストールするフォルダとして別の場所を指定するのが良い。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="rstudioの画面" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> RStudioの画面<a href="rとrstudioのインストール.html#rstudioの画面" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudioを起動すると，細かい違いはあれ下のような画面が表示されるはず。</p>
+<div class="figure">
+<img src="RStudio.png" alt="" />
+<p class="caption">RStudio</p>
+</div>
+<p>デフォルトでは白背景の配色になっていると思うが，コードを書くときは黒背景の方が見やすいので変更している。見た目を変更するには，RStudioのメニューから[Tools]&gt;[Global Options…]を選び，Appearanceで設定する。長時間の作業を行う場合には，色やフォントによって作業効率や目の疲れ方がけっこう変わってくるので，いろいろ試して自分にあった設定にしよう。</p>
+<p>RStudioの画面は，デフォルトで4ペイン(4分割)。最初はそのまま使っても良いと思うが，画面のレイアウトは比較的自由に変えることができるので，慣れてきたら自分が使いやすいように設定しよう。</p>
+<p>各ペインにはタブが複数配置されている。まずは，よく使うものだけ説明する。</p>
+<ul>
+<li>Sourceペイン：デフォルトでは左上。何もファイルが開かれていない状態では最小化されているので，画面左上の+マークで新しいスクリプト・ファイル(R Script)を作成してみよう。</li>
+<li>Consoleペイン：デフォルトでは左下。Rにコマンドを入力して実行する画面。</li>
+<li>Environmentなどのペイン：デフォルトでは右上。Environmentタブには記憶されている変数やデータなどが表示される。Historyタブには実行したコマンドの履歴が表示され，選択して再度実行できる。</li>
+<li>Filesなどのペイン：デフォルトでは右下。Filesタブには現在のディレクトリにあるファイルのリストが表示される。ファイル名をクリックすればファイルを開くことができる。RのソースコードなどやデータフレームはSourceペインで開かれる。Plotsタブはグラフが表示される場所。</li>
+</ul>
+<p>Rで単発のコマンドを実行するときには，Consoleタブで行う。ただし，通常はスクリプト・ファイルにコマンドを書いて一つずつ実行していったり，いくつかのコマンドをまとめて実行したりすることが多い。Consoleでコマンドを実行した場合にも，Histroyタブからスクリプト・ファイルへと実行したコマンドを貼り付けておくと良い。そうすれば，いつでも作業を最初から再現できる。研究では，結果を再現できることが極めて重要。再現性を担保できることは，ExcelではなくRを使うメリットの一つ。</p>
+<p>スクリプト・ファイルに書かれたコマンドを実行する場合，Ctrlを押しながらEnterを押す。範囲が選択されていない場合には，カーソルのある行(コマンドが複数行にまたがっていてもOk)が実行される。範囲を選択してCtrl+Enterを押せば，選択された範囲のコードが順に実行される。</p>
+</div>
+<div id="ヘルプの参照" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> ヘルプの参照<a href="rとrstudioのインストール.html#ヘルプの参照" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rのコマンド・ヘルプは?のあとにコマンド名を入力すれば参照できる。ヘルプは，Helpタブ(デフォルトでは右下のペイン)に表示される。知らないコマンドが出てきたらまずはヘルプを読む。英語が苦手でもDeepLで翻訳すればだいたい読める。</p>
+<p>たとえば，table関数のヘルプを読みたければ，</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="rとrstudioのインストール.html#cb4-1" aria-hidden="true" tabindex="-1"></a>?table</span></code></pre></div>
+</div>
+<div id="チュートリアルの実行" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> チュートリアルの実行<a href="rとrstudioのインストール.html#チュートリアルの実行" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>右上のペインにTutorialというタブがあり，そこからRのチュートリアル・レッスンを受けられる。チュートリアルを実行するためのパッケージをインストールするのに時間がかかるが，とりあえず一通り実行してみると，Rの使い方についてのイメージを持つことができるかもしれない。</p>
+</div>
+<div id="パッケージのインストール" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> パッケージのインストール<a href="rとrstudioのインストール.html#パッケージのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rは本体にパッケージを追加することで，機能を拡張することができる。パッケージをインストールするには，install.packages関数を用いる。とくに，tidyverseパッケージは必ず利用することになるので，インストールしておこう。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rとrstudioのインストール.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>MacやUbuntuの場合，もしかしたら”openssl”がないみたいなエラーが出るかもしれない。そのときは，opensslをインストールしてから，再度実行する。</p>
+<p>opensslはMacだと，</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="rとrstudioのインストール.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install openssl</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="rとrstudioのインストール.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install openssl</span></code></pre></div>
+<p>でインストールできる。</p>
+<p>インストールしたパッケージは毎回読み込む必要がある。パッケージを読み込むにはlibrary関数を使う。</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="rとrstudioのインストール.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rにおけるオブジェクト.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

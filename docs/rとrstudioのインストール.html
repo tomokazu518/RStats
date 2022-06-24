@@ -142,7 +142,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#インストール方法"><i class="fa fa-check"></i><b>2.2</b> インストール方法</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#macにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.1</b> Macにインストールする場合の補足</a></li>
-<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.2</b> Windowsにインストールする場合の補足</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac"><i class="fa fa-check"></i><b>2.2.2</b> Homebrewを使ってインストールする(Mac)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.3</b> Windowsにインストールする場合の補足</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioの画面"><i class="fa fa-check"></i><b>2.3</b> RStudioの画面</a></li>
 <li class="chapter" data-level="2.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#ヘルプの参照"><i class="fa fa-check"></i><b>2.4</b> ヘルプの参照</a></li>
@@ -155,6 +156,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
 <li class="chapter" data-level="3.3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ファクター"><i class="fa fa-check"></i><b>3.3</b> ファクター</a></li>
 <li class="chapter" data-level="3.4" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#データフレーム"><i class="fa fa-check"></i><b>3.4</b> データフレーム</a></li>
+<li class="chapter" data-level="3.5" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数"><i class="fa fa-check"></i><b>3.5</b> 関数</a></li>
+<li class="chapter" data-level="3.6" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数の自作"><i class="fa fa-check"></i><b>3.6</b> 関数の自作</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html"><i class="fa fa-check"></i><b>4</b> データの要約1（記述統計量）</a>
 <ul>
@@ -212,8 +215,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>XCodeをインストールするとかなりのディスク容量を消費する。必要なのはXCodeに含まれるCommand Line Toolsなので，ディスク容量に余裕がない場合にはCommand Line Toolsだけをインストールすることもできる。ターミナルで次のコマンドを実行することでインストールできる。</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="rとrstudioのインストール.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code></pre></div>
+</div>
+<div id="homebrewを使ってインストールするmac" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Homebrewを使ってインストールする(Mac)<a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Homebrewを使えば，もう少し簡単にインストールできる
+<li>Homebrewを使えば，簡単にインストールできる。
 <ul>
 <li>HomebrewはMacのパッケージマネージャ。ソフトのインストールやアップグレードの管理が容易にできるようになるので，おすすめ。</li>
 <li>Homebrewを使えばRとRStudioも簡単にインストールできる。</li>
@@ -227,8 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="rとrstudioのインストール.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install r rstudio</span></code></pre></div></li>
 </ul>
 </div>
-<div id="windowsにインストールする場合の補足" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Windowsにインストールする場合の補足<a href="rとrstudioのインストール.html#windowsにインストールする場合の補足" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="windowsにインストールする場合の補足" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Windowsにインストールする場合の補足<a href="rとrstudioのインストール.html#windowsにインストールする場合の補足" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>プログラミング用フォントのインストールはとりあえず飛ばしてもかまわない。</li>
 <li>RtoolsもとりあえずなくてもOk(パッケージをソースコードからビルドする場合に必要だが，ほとんどのパッケージはビルド済みのバイナリが提供されている)。</li>
@@ -240,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>One Drive問題にも対処が必要。
 <ul>
-<li>Rはパッケージをドキュメント・フォルダにインストールする。ドキュメント・フォルダがOneDriveに管理されていると，フォルダ名に全角文字が含まれるためパッケージを読み込むことができなくなる。</li>
+<li>Rはパッケージをドキュメント・フォルダにインストールする。ドキュメント・フォルダがOneDriveに管理されていると，フォルダ名に全角文字(カタカナで”ドキュメント”)が含まれるためパッケージを読み込むことができなくなる。</li>
 <li>多くの学生はOffice 365のOneDriveを使っていると思うので，矢内先生の資料の対処法その3で，パッケージをインストールするフォルダとして別の場所を指定するのが良い。</li>
 </ul></li>
 </ul>
@@ -273,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="チュートリアルの実行" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> チュートリアルの実行<a href="rとrstudioのインストール.html#チュートリアルの実行" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>右上のペインにTutorialというタブがあり，そこからRのチュートリアル・レッスンを受けられる。チュートリアルを実行するためのパッケージをインストールするのに時間がかかるが，とりあえず一通り実行してみると，Rの使い方についてのイメージを持つことができるはず。</p>
+<p>右上のペインにTutorialというタブがあり，そこからRのチュートリアル・レッスンを受けられる。チュートリアルを実行するためのパッケージをインストールするのに時間がかかるが，とりあえず一通り実行してみると，Rの使い方についてのイメージを持つことができるかもしれない。</p>
 </div>
 <div id="パッケージのインストール" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> パッケージのインストール<a href="rとrstudioのインストール.html#パッケージのインストール" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -346,6 +352,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

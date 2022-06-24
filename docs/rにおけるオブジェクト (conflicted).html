@@ -142,7 +142,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#インストール方法"><i class="fa fa-check"></i><b>2.2</b> インストール方法</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#macにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.1</b> Macにインストールする場合の補足</a></li>
-<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.2</b> Windowsにインストールする場合の補足</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac"><i class="fa fa-check"></i><b>2.2.2</b> Homebrewを使ってインストールする(Mac)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.3</b> Windowsにインストールする場合の補足</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioの画面"><i class="fa fa-check"></i><b>2.3</b> RStudioの画面</a></li>
 <li class="chapter" data-level="2.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#ヘルプの参照"><i class="fa fa-check"></i><b>2.4</b> ヘルプの参照</a></li>
@@ -155,6 +156,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
 <li class="chapter" data-level="3.3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ファクター"><i class="fa fa-check"></i><b>3.3</b> ファクター</a></li>
 <li class="chapter" data-level="3.4" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#データフレーム"><i class="fa fa-check"></i><b>3.4</b> データフレーム</a></li>
+<li class="chapter" data-level="3.5" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数"><i class="fa fa-check"></i><b>3.5</b> 関数</a></li>
+<li class="chapter" data-level="3.6" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数の自作"><i class="fa fa-check"></i><b>3.6</b> 関数の自作</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html"><i class="fa fa-check"></i><b>4</b> データの要約1（記述統計量）</a>
 <ul>
@@ -309,6 +312,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>たとえば，3人の平均年齢を求めてみよう。</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="rにおけるオブジェクト.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
+</div>
+<div id="関数" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> 関数<a href="rにおけるオブジェクト.html#関数" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rではほとんどの処理を関数を用いて行う。関数というのは，なにかを入力すれば，それに応じた出力が得られるものである。入力する「なにか」のことを引数という。関数はfunction_name(引数1, 引数2, ･･･)ような形で用いられる。</p>
+<p>たとえば，abs()という関数は，引数を1つ入力すれば，その引数の絶対値を返す。</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rにおけるオブジェクト.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>関数は，必ずしも何かを計算するためだけに用いるわけではなく，画面に何かを表示させたり，ファイルからデータを読み込んだりといったことも，すべて関数を用いて行う。</p>
+<p>また，関数には引数を取らないものもある。たとえば，q()と入力すればRを終了させることができるが，q()も関数である。</p>
+</div>
+<div id="関数の自作" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> 関数の自作<a href="rにおけるオブジェクト.html#関数の自作" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>もとからRに組み込まれている関数に加え，自分で関数を定義することもできる。同じような計算や処理を何度も行うときには，一連の処理を関数として定義しておけば便利だ。</p>
+<p>たとえば，順列・組合せを求めたいとしよう。Rには組合せを求める関数としてchoose(n,r)という関数が用意されており，n個のなかからr個を選ぶ組合せが何通りあるかを返す。</p>
+<p>たとえば，37個の数字のなかから7個を選ぶ組合せは，以下のように求めることができる。</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="rにおけるオブジェクト.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">choose</span>(<span class="dv">37</span>,<span class="dv">7</span>)</span></code></pre></div>
+<pre><code>## [1] 10295472</code></pre>
+<p>一方で，Rにはn個の中からr個を取り出す順列を求める関数は用意されていない。そこで，nとrを引数として与えれば，順列を返す関数を自作してみよう。自作の関数は，</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="rにおけるオブジェクト.html#cb47-1" aria-hidden="true" tabindex="-1"></a>関数名 <span class="ot">&lt;-</span> <span class="cf">function</span>(引数1, 引数2, ...){</span>
+<span id="cb47-2"><a href="rにおけるオブジェクト.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  ...処理内容...</span>
+<span id="cb47-3"><a href="rにおけるオブジェクト.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
+<p>の形で定義する。</p>
+<p>n個の中からr個を取り出す順列<span class="math inline">\({}_nP_r\)</span>は，</p>
+<p><span class="math display">\[{}_nP_r = \frac{n!}{(n-r)!}\]</span>
+で計算できる。ただし，<span class="math inline">\(n!=n \times (n-1) \times (n-2) \times \cdots \times 1\)</span>であり，これを<span class="math inline">\(n\)</span>の階乗という。階乗は，factorial()関数で求めることができる。</p>
+<p>順列の計算を行う関数をpermut()として定義しよう。</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="rにおけるオブジェクト.html#cb48-1" aria-hidden="true" tabindex="-1"></a>permut <span class="ot">&lt;-</span> <span class="cf">function</span>(n, r){</span>
+<span id="cb48-2"><a href="rにおけるオブジェクト.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">factorial</span>(n) <span class="sc">/</span> <span class="fu">factorial</span>(n <span class="sc">-</span> r)</span>
+<span id="cb48-3"><a href="rにおけるオブジェクト.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb48-4"><a href="rにおけるオブジェクト.html#cb48-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="figure">
+<img src="function.png" alt="" />
+<p class="caption">自作の関数</p>
+</div>
+<p>自作の関数permut()の引数はnとrの2つであり，これらを使って<span class="math inline">\({}_nP_r\)</span>を計算し，pに代入する。次に，return(p)で順列の計算結果を返す。</p>
+<p>return()は関数が返す値を指定するが，これを指定しなければ，関数は最後に行われた計算結果を返す。したがって，permut()関数は以下のように書いても良い。</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="rにおけるオブジェクト.html#cb49-1" aria-hidden="true" tabindex="-1"></a>permut <span class="ot">&lt;-</span> <span class="cf">function</span>(n, r) {<span class="fu">factorial</span>(n) <span class="sc">/</span> <span class="fu">factorial</span>(n <span class="sc">-</span> r)}</span></code></pre></div>
+<p>ここでは計算が1つしか行われていないので，その結果が返される。</p>
+<p>実際にこの関数を用いて順列を求めてみよう。</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="rにおけるオブジェクト.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permut</span>(<span class="dv">10</span>, <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 5040</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="rにおけるオブジェクト.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permut</span>(<span class="dv">4</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="rにおけるオブジェクト.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permut</span>(<span class="dv">8</span>, <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
 
 </div>
 </div>
@@ -369,6 +417,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

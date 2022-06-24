@@ -142,7 +142,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#インストール方法"><i class="fa fa-check"></i><b>2.2</b> インストール方法</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#macにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.1</b> Macにインストールする場合の補足</a></li>
-<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.2</b> Windowsにインストールする場合の補足</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac"><i class="fa fa-check"></i><b>2.2.2</b> Homebrewを使ってインストールする(Mac)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.3</b> Windowsにインストールする場合の補足</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioの画面"><i class="fa fa-check"></i><b>2.3</b> RStudioの画面</a></li>
 <li class="chapter" data-level="2.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#ヘルプの参照"><i class="fa fa-check"></i><b>2.4</b> ヘルプの参照</a></li>
@@ -155,6 +156,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
 <li class="chapter" data-level="3.3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ファクター"><i class="fa fa-check"></i><b>3.3</b> ファクター</a></li>
 <li class="chapter" data-level="3.4" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#データフレーム"><i class="fa fa-check"></i><b>3.4</b> データフレーム</a></li>
+<li class="chapter" data-level="3.5" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数"><i class="fa fa-check"></i><b>3.5</b> 関数</a></li>
+<li class="chapter" data-level="3.6" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数の自作"><i class="fa fa-check"></i><b>3.6</b> 関数の自作</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html"><i class="fa fa-check"></i><b>4</b> データの要約1（記述統計量）</a>
 <ul>
@@ -257,6 +260,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 データの要約1（記述統計量） | ちょっとニッチなR入門1</title>
+  <meta name="description" content="Chapter 4 データの要約1（記述統計量） | ちょっとニッチなR入門1" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 データの要約1（記述統計量） | ちょっとニッチなR入門1" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 データの要約1（記述統計量） | ちょっとニッチなR入門1" />
+  
+  
+  
+
+<meta name="author" content="Tomokazu NOMURA" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rにおけるオブジェクト.html"/>
+<link rel="next" href="データの要約2グラフの作成.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ちょっとニッチなR入門</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
+<li class="chapter" data-level="2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html"><i class="fa fa-check"></i><b>2</b> RとRStudioのインストール</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rが使えるパソコン"><i class="fa fa-check"></i><b>2.1</b> Rが使えるパソコン</a></li>
+<li class="chapter" data-level="2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#インストール方法"><i class="fa fa-check"></i><b>2.2</b> インストール方法</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#macにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.1</b> Macにインストールする場合の補足</a></li>
+<li class="chapter" data-level="2.2.2" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#homebrewを使ってインストールするmac"><i class="fa fa-check"></i><b>2.2.2</b> Homebrewを使ってインストールする(Mac)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#windowsにインストールする場合の補足"><i class="fa fa-check"></i><b>2.2.3</b> Windowsにインストールする場合の補足</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#rstudioの画面"><i class="fa fa-check"></i><b>2.3</b> RStudioの画面</a></li>
+<li class="chapter" data-level="2.4" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#ヘルプの参照"><i class="fa fa-check"></i><b>2.4</b> ヘルプの参照</a></li>
+<li class="chapter" data-level="2.5" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#チュートリアルの実行"><i class="fa fa-check"></i><b>2.5</b> チュートリアルの実行</a></li>
+<li class="chapter" data-level="2.6" data-path="rとrstudioのインストール.html"><a href="rとrstudioのインストール.html#パッケージのインストール"><i class="fa fa-check"></i><b>2.6</b> パッケージのインストール</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html"><i class="fa fa-check"></i><b>3</b> Rにおけるオブジェクト</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#数値と文字列"><i class="fa fa-check"></i><b>3.1</b> 数値と文字列</a></li>
+<li class="chapter" data-level="3.2" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ベクトル"><i class="fa fa-check"></i><b>3.2</b> ベクトル</a></li>
+<li class="chapter" data-level="3.3" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#ファクター"><i class="fa fa-check"></i><b>3.3</b> ファクター</a></li>
+<li class="chapter" data-level="3.4" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#データフレーム"><i class="fa fa-check"></i><b>3.4</b> データフレーム</a></li>
+<li class="chapter" data-level="3.5" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数"><i class="fa fa-check"></i><b>3.5</b> 関数</a></li>
+<li class="chapter" data-level="3.6" data-path="rにおけるオブジェクト.html"><a href="rにおけるオブジェクト.html#関数の自作"><i class="fa fa-check"></i><b>3.6</b> 関数の自作</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html"><i class="fa fa-check"></i><b>4</b> データの要約1（記述統計量）</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#データの概観"><i class="fa fa-check"></i><b>4.1</b> データの概観</a></li>
+<li class="chapter" data-level="4.2" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#要約統計表の作成"><i class="fa fa-check"></i><b>4.2</b> 要約統計表の作成</a></li>
+<li class="chapter" data-level="4.3" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#相関表"><i class="fa fa-check"></i><b>4.3</b> 相関表</a></li>
+<li class="chapter" data-level="4.4" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#グループ分け"><i class="fa fa-check"></i><b>4.4</b> グループ分け</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#データフレームを分割する"><i class="fa fa-check"></i><b>4.4.1</b> データフレームを分割する</a></li>
+<li class="chapter" data-level="4.4.2" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#group_byを使う"><i class="fa fa-check"></i><b>4.4.2</b> group_by()を使う</a></li>
+<li class="chapter" data-level="4.4.3" data-path="データの要約1記述統計量.html"><a href="データの要約1記述統計量.html#xtabsを使う"><i class="fa fa-check"></i><b>4.4.3</b> xtabs()を使う</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html"><i class="fa fa-check"></i><b>5</b> データの要約2(グラフの作成)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html#ヒストグラム"><i class="fa fa-check"></i><b>5.1</b> ヒストグラム</a></li>
+<li class="chapter" data-level="5.2" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html#箱ひげ図"><i class="fa fa-check"></i><b>5.2</b> 箱ひげ図</a></li>
+<li class="chapter" data-level="5.3" data-path="データの要約2グラフの作成.html"><a href="データの要約2グラフの作成.html#散布図"><i class="fa fa-check"></i><b>5.3</b> 散布図</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ちょっとニッチなR入門1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="データの要約1記述統計量" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> データの要約1（記述統計量）<a href="データの要約1記述統計量.html#データの要約1記述統計量" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>データを入手したら分析を行う前にデータの概観を把握することが重要である。データフレームにどのような変数が含まれているかを確認し，それぞれの変数の記述統計量(平均値，分位点，分散など)を求め，必要であれば変数間の相関関係を調べよう。</p>
+<p>ここでは，Rのパッケージ，tidyverseとstargazerを利用するので読み込んでおく。</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="データの要約1記述統計量.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning in system(&quot;timedatectl&quot;, intern = TRUE): running command &#39;timedatectl&#39;
+## had status 1</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="データの要約1記述統計量.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code></pre></div>
+<pre><code>## 
+## Please cite as:</code></pre>
+<pre><code>##  Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
+<pre><code>##  R package version 5.2.3. https://CRAN.R-project.org/package=stargazer</code></pre>
+<div id="データの概観" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> データの概観<a href="データの要約1記述統計量.html#データの概観" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ここでは，練習としてRに組み込まれているサンプル・データirisを使ってデータを概観する。まず，サンプル・データをirisというデータフレームに読み込む。</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="データの要約1記述統計量.html#cb65-1" aria-hidden="true" tabindex="-1"></a>iris <span class="ot">&lt;-</span> iris</span></code></pre></div>
+<p>irisデータには，150のアヤメについて，種類(3分類)，萼片(がくへん)の長さと幅，花弁(かべん)の長さと幅の5つの変数が記録されている。</p>
+<table>
+<thead>
+<tr class="header">
+<th>変数名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sepal.Length</td>
+<td>萼片の長さ</td>
+</tr>
+<tr class="even">
+<td>Sepal.Width</td>
+<td>萼片の幅</td>
+</tr>
+<tr class="odd">
+<td>Petal.Length</td>
+<td>花弁の長さ</td>
+</tr>
+<tr class="even">
+<td>Petal.Width</td>
+<td>花弁の幅</td>
+</tr>
+<tr class="odd">
+<td>Species</td>
+<td>アヤメの種類</td>
+</tr>
+</tbody>
+</table>
+<p>データにどのような変数が含まれているかは，スプレッド・シートを表示させれば把握できるが，glimpse()関数を使っても良い(tidyverseの読み込みが必要)。</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="データの要約1記述統計量.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(iris)</span></code></pre></div>
+<pre><code>## Rows: 150
+## Columns: 5
+## $ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…
+## $ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…
+## $ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…
+## $ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…
+## $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</code></pre>
+<p>データの行数(観測数)が150，列数(変数の数)が5であることがわかる。また，5つの変数のはじめのいくつかの観測値を見ることができるので，データのイメージがつかめる。&lt;dbl&gt;や&lt;fct&gt;はそれぞれの変数の型で，dblは実数型，fctはファクター型であることを表している。変数の型には，ほかに文字列型&lt;chr&gt;，整数型&lt;int&gt;などがある。</p>
+</div>
+<div id="要約統計表の作成" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> 要約統計表の作成<a href="データの要約1記述統計量.html#要約統計表の作成" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>データ全体のイメージがつかめたら，次は記録されている変数の要約統計表を作成してみよう。summary()関数を用いれば，データフレームに含まれるすべての変数の要約統計量を表示させることができる。</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="データの要約1記述統計量.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+<p>数値型の変数については，最小値(Min.)，第一四分位(1st Qu.)，中央値(Median)，平均値(Mean)，第三四分位(3rd Qu.)，最大値(Max)が表示される。また，ファクター型の変数については，度数分布表が表示される。</p>
+<p>これでも十分だが，要約統計量を求める変数や，求める要約統計量をカスタマイズしたい場合には，summarize()関数を用いる。</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="データの要約1記述統計量.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(iris, </span>
+<span id="cb70-2"><a href="データの要約1記述統計量.html#cb70-2" aria-hidden="true" tabindex="-1"></a>          萼片長平均     <span class="ot">=</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb70-3"><a href="データの要約1記述統計量.html#cb70-3" aria-hidden="true" tabindex="-1"></a>          萼片長標準偏差 <span class="ot">=</span> <span class="fu">sd</span>(Sepal.Length),</span>
+<span id="cb70-4"><a href="データの要約1記述統計量.html#cb70-4" aria-hidden="true" tabindex="-1"></a>          花弁長平均     <span class="ot">=</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb70-5"><a href="データの要約1記述統計量.html#cb70-5" aria-hidden="true" tabindex="-1"></a>          花弁長標準偏差 <span class="ot">=</span> <span class="fu">sd</span>(Petal.Length)</span>
+<span id="cb70-6"><a href="データの要約1記述統計量.html#cb70-6" aria-hidden="true" tabindex="-1"></a>          )</span></code></pre></div>
+<pre><code>##   萼片長平均 萼片長標準偏差 花弁長平均 花弁長標準偏差
+## 1   5.843333      0.8280661      3.758       1.765298</code></pre>
+<p>summarize()関数の第1引数にはデータフレーム名を指定する。第2引数以降は要約統計量の名前と対象の変数名を，名前=関数(変数名)という形式で指定する。名前は表示名なので自由に指定すれば良い。関数の部分には，例として下の表のような関数が利用できる。変数名xには，データフレーム内の変数名を指定すればよく，データフレーム名は必要ない。</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>関数</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mean(x)</td>
+<td>xの平均値</td>
+</tr>
+<tr class="even">
+<td>var(x)</td>
+<td>xの分散</td>
+</tr>
+<tr class="odd">
+<td>sd(x)</td>
+<td>xの標準偏差</td>
+</tr>
+<tr class="even">
+<td>max(x)</td>
+<td>xの最大値</td>
+</tr>
+<tr class="odd">
+<td>median(x)</td>
+<td>xの中央値</td>
+</tr>
+<tr class="even">
+<td>min(x)</td>
+<td>xの最小値</td>
+</tr>
+<tr class="odd">
+<td>quantile(x, XX)</td>
+<td>xのXX×100パーセンタイル, e.g. xの25パーセンタイルであればquantile(x,0.25)</td>
+</tr>
+</tbody>
+</table>
+<p>summarize()関数は，後で述べるようにグループ別の集計のときに役に立つ。</p>
+<p>レポートや論文に貼り付けるための要約統計表を作成するには，stargazerパッケージを用いると良い。</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="データの要約1記述統計量.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(iris, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;要約統計表&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb72-2"><a href="データの要約1記述統計量.html#cb72-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary.stat =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;min&quot;</span>, <span class="st">&quot;p25&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;p75&quot;</span>, <span class="st">&quot;max&quot;</span>))</span></code></pre></div>
+<pre><code>## 
+## 要約統計表
+## =============================================================
+## Statistic    Mean St. Dev. Min  Pctl(25) Median Pctl(75) Max 
+## -------------------------------------------------------------
+## Sepal.Length 5.84   0.83   4.30   5.10    5.80    6.40   7.90
+## Sepal.Width  3.06   0.44   2.00   2.80    3.00    3.30   4.40
+## Petal.Length 3.76   1.77   1.00   1.60    4.35    5.10   6.90
+## Petal.Width  1.20   0.76   0.10   0.30    1.30    1.80   2.50
+## -------------------------------------------------------------</code></pre>
+<p>stargazer()関数は，要約統計表や回帰分析の結果などを，良い感じの見た目で出力してくれる。</p>
+<p>stargazer()関数で要約統計表を作成する場合は，第1引数としてデータフレーム(この例ではiris)を指定する。そのほかの引数は必要に応じて指定すれば良い。よく使うオプションだけ説明する。まず，typeは表の出力形式で，“text”(プレーンテキスト)，“html”，“latex”のいずれかを指定する。titleは表のタイトル，digitsは表の数値の小数点以下の桁数を指定する。summary.statsは表に含める要約統計量をベクトル形式で指定する。</p>
+<table>
+<thead>
+<tr class="header">
+<th>要約統計量</th>
+<th>指定方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>平均</td>
+<td>mean</td>
+</tr>
+<tr class="even">
+<td>標準偏差</td>
+<td>sd</td>
+</tr>
+<tr class="odd">
+<td>最小値</td>
+<td>min</td>
+</tr>
+<tr class="even">
+<td>最大値</td>
+<td>max</td>
+</tr>
+<tr class="odd">
+<td>XXパーセンタイル(分位点)</td>
+<td>pXX</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="相関表" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> 相関表<a href="データの要約1記述統計量.html#相関表" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>次に，変数間の相関を求めよう。相関表を求めるにはcor()関数を使う。引数にはデータフレーム名を指定する。ただし，irisにファクター型のSpeciesという変数が含まれているため，そのままではエラーになる。そこで，まずデータフレームirisから数値型の4つの変数だけを取り出したデータフレームiris2を作成する。</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="データの要約1記述統計量.html#cb74-1" aria-hidden="true" tabindex="-1"></a>iris2 <span class="ot">&lt;-</span> <span class="fu">select</span>(iris, <span class="sc">-</span> Species)</span></code></pre></div>
+<p>select()は，データフレームから指定した変数を残したデータフレームを作成する関数である。第1引数には取り出したい変数が含まれるデータフレームを指定する。第2引数以降は取り出したい変数名をカンマで区切って指定する。たとえば，select(dataframe,a,b)はdataframe$aとdataframe$bの2つの変数が含まれるデータフレームとなる。逆にデータフレームから指定した変数を除外したいときには，第2変数以降に変数名に”-“をつけて指定する。たとえば，select(dataframe,-a)はdataframeから変数aを除いたデータフレームとなる。また，変数は列番号で指定することも可能である。たとえば，select(dataframe,2:4)はdataframeから2列目から4列目までの変数を取り出したデータフレームとなる。</p>
+<p>ここでは，irisに含まれる5つの変数のうち数値型の4つを取り出して相関表を作成したいので，ファクター型の変数Speciesだけを除外したiris2を作成している。cor()関数の引数に，iris2を指定すると，相関行列が得られる。</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="データの要約1記述統計量.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris2)</span></code></pre></div>
+<pre><code>##              Sepal.Length Sepal.Width Petal.Length Petal.Width
+## Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
+## Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
+## Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
+## Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
+<p>わざわざ新しいデータフレームを作成せずに，以下のように書いても同じ結果が得られる。</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="データの要約1記述統計量.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">select</span>(iris, <span class="sc">-</span> Species))</span></code></pre></div>
+<pre><code>##              Sepal.Length Sepal.Width Petal.Length Petal.Width
+## Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
+## Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
+## Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
+## Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
+<p>ほかにも，以下のようなコードでも同じ結果が得られる。入力の簡単さやコードの見た目のわかりやすさで，その都度書き方を考えよう。</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="データの要約1記述統計量.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">select</span>(iris,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span>
+<span id="cb79-2"><a href="データの要約1記述統計量.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">select</span>(iris, Sepal.Length, Sepal.Width, Petal.Length, Petal.Width)</span></code></pre></div>
+</div>
+<div id="グループ分け" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> グループ分け<a href="データの要約1記述統計量.html#グループ分け" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>データをグループに分けて，グループごとに要約統計を求めることは，実際に良く行う作業である。irisデータでは，アヤメはsetosa，versicolor，virginicaの3種類に分類されている。アヤメの種類ごとに萼片と花弁の長さ，幅の平均を求めてみよう。そのための方法はいくつか考えられる。</p>
+<div id="データフレームを分割する" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> データフレームを分割する<a href="データの要約1記述統計量.html#データフレームを分割する" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>まず，データフレームをアヤメの種類ごとに分割する方法。単純でわかりやすいが，分類が多くなると大変になる。</p>
+<p>アヤメの種類ごとのデータフレームを作成するには，filter()関数を用いる。filter()はデータフレームから条件を満たすデータ(行)を取り出す関数で，第1引数にはデータフレーム名，第2引数には抽出条件を指定する。</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="データの要約1記述統計量.html#cb80-1" aria-hidden="true" tabindex="-1"></a>iris_setosa <span class="ot">&lt;-</span> <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>)</span>
+<span id="cb80-2"><a href="データの要約1記述統計量.html#cb80-2" aria-hidden="true" tabindex="-1"></a>iris_versicolor <span class="ot">&lt;-</span> <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>)</span>
+<span id="cb80-3"><a href="データの要約1記述統計量.html#cb80-3" aria-hidden="true" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>)</span></code></pre></div>
+<p>アヤメの種類ごとのデータフレームができるので，それぞれのデータフレームで要約統計表を作成する。</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="データの要約1記述統計量.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(iris_setosa, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;setosa&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb81-2"><a href="データの要約1記述統計量.html#cb81-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary.stat =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;min&quot;</span>, <span class="st">&quot;p25&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;p75&quot;</span>, <span class="st">&quot;max&quot;</span>))</span></code></pre></div>
+<pre><code>## 
+## setosa
+## =============================================================
+## Statistic    Mean St. Dev. Min  Pctl(25) Median Pctl(75) Max 
+## -------------------------------------------------------------
+## Sepal.Length 5.01   0.35   4.30   4.80    5.00    5.20   5.80
+## Sepal.Width  3.43   0.38   2.30   3.20    3.40    3.68   4.40
+## Petal.Length 1.46   0.17   1.00   1.40    1.50    1.58   1.90
+## Petal.Width  0.25   0.11   0.10   0.20    0.20    0.30   0.60
+## -------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="データの要約1記述統計量.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(iris_versicolor, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;versicolor&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb83-2"><a href="データの要約1記述統計量.html#cb83-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary.stat =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;min&quot;</span>, <span class="st">&quot;p25&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;p75&quot;</span>, <span class="st">&quot;max&quot;</span>))</span></code></pre></div>
+<pre><code>## 
+## versicolor
+## =============================================================
+## Statistic    Mean St. Dev. Min  Pctl(25) Median Pctl(75) Max 
+## -------------------------------------------------------------
+## Sepal.Length 5.94   0.52   4.90   5.60    5.90    6.30   7.00
+## Sepal.Width  2.77   0.31   2.00   2.52    2.80    3.00   3.40
+## Petal.Length 4.26   0.47   3.00   4.00    4.35    4.60   5.10
+## Petal.Width  1.33   0.20   1.00   1.20    1.30    1.50   1.80
+## -------------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="データの要約1記述統計量.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(iris_virginica, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;virginica&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb85-2"><a href="データの要約1記述統計量.html#cb85-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary.stat =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;min&quot;</span>, <span class="st">&quot;p25&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;p75&quot;</span>, <span class="st">&quot;max&quot;</span>))</span></code></pre></div>
+<pre><code>## 
+## virginica
+## =============================================================
+## Statistic    Mean St. Dev. Min  Pctl(25) Median Pctl(75) Max 
+## -------------------------------------------------------------
+## Sepal.Length 6.59   0.64   4.90   6.23    6.50    6.90   7.90
+## Sepal.Width  2.97   0.32   2.20   2.80    3.00    3.18   3.80
+## Petal.Length 5.55   0.55   4.50   5.10    5.55    5.88   6.90
+## Petal.Width  2.03   0.27   1.40   1.80    2.00    2.30   2.50
+## -------------------------------------------------------------</code></pre>
+</div>
+<div id="group_byを使う" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> group_by()を使う<a href="データの要約1記述統計量.html#group_byを使う" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>たぶんこれが標準的で，洗練された方法。</p>
+<p>group_by関数を使うと，(Rの内部で)グループに分類されたデータフレームを作成することができる。第1引数には分類したいデータフレーム名，第2引数以降は分類を行うためのファクター型変数を指定する。複数のファクター型変数を指定して，階層的な分類を行うことも可能。グループに分類されたデータフレームにsummarize()関数を適用すると，グループごとの要約統計量が計算される。</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="データの要約1記述統計量.html#cb87-1" aria-hidden="true" tabindex="-1"></a>iris_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(iris, Species)</span>
+<span id="cb87-2"><a href="データの要約1記述統計量.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="データの要約1記述統計量.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span>(iris_grouped, </span>
+<span id="cb87-4"><a href="データの要約1記述統計量.html#cb87-4" aria-hidden="true" tabindex="-1"></a>          萼片長平均     <span class="ot">=</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb87-5"><a href="データの要約1記述統計量.html#cb87-5" aria-hidden="true" tabindex="-1"></a>          萼片長標準偏差 <span class="ot">=</span> <span class="fu">sd</span>(Sepal.Length),</span>
+<span id="cb87-6"><a href="データの要約1記述統計量.html#cb87-6" aria-hidden="true" tabindex="-1"></a>          花弁長平均     <span class="ot">=</span> <span class="fu">mean</span>(Petal.Length),</span>
+<span id="cb87-7"><a href="データの要約1記述統計量.html#cb87-7" aria-hidden="true" tabindex="-1"></a>          花弁長標準偏差 <span class="ot">=</span> <span class="fu">sd</span>(Petal.Length)</span>
+<span id="cb87-8"><a href="データの要約1記述統計量.html#cb87-8" aria-hidden="true" tabindex="-1"></a>          )</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 5
+##   Species    萼片長平均 萼片長標準偏差 花弁長平均 花弁長標準偏差
+##   &lt;fct&gt;           &lt;dbl&gt;          &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
+## 1 setosa           5.01          0.352       1.46          0.174
+## 2 versicolor       5.94          0.516       4.26          0.470
+## 3 virginica        6.59          0.636       5.55          0.552</code></pre>
+</div>
+<div id="xtabsを使う" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> xtabs()を使う<a href="データの要約1記述統計量.html#xtabsを使う" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>xtabs()関数を使うと，多次元分割表を柔軟に作成することができる。第1引数には形式を，第2引数にはデータフレーム名を指定する。形式は，<code>~ x1 + x2 + ...</code>か<code>y ~ x1 + x2 + ...</code>の形で指定する。たとえば，<code>~ x1 + x2</code>を指定すれば，x1,x2で表を分割し，各セルの観測数が得られる。<code>y ~ x1 + x2</code>を指定すれば，x1,x2で表を分割し，各セルに入るデータのyの合計が得られる。</p>
+<p>irisでは分類に用いることができる変数はSpeciesの1つしかないが，それでもxtabs()を適用できる。以下のコードでSpeciesごとのデータ数の表を作成できる。</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="データの要約1記述統計量.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="sc">~</span>Species, iris)</span></code></pre></div>
+<pre><code>## Species
+##     setosa versicolor  virginica 
+##         50         50         50</code></pre>
+<p>次に，以下のコードでSpeciesごとの萼片長の合計値の表を作成できる。</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="データの要約1記述統計量.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(Sepal.Length <span class="sc">~</span> Species, iris)</span></code></pre></div>
+<pre><code>## Species
+##     setosa versicolor  virginica 
+##      250.3      296.8      329.4</code></pre>
+<p>平均値は合計値をデータ数で割ったものなので，Speciesごとの萼片長の平均値を以下のように求められる。</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="データの要約1記述統計量.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(Sepal.Length <span class="sc">~</span> Species, iris) <span class="sc">/</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Species, iris)</span></code></pre></div>
+<pre><code>## Species
+##     setosa versicolor  virginica 
+##      5.006      5.936      6.588</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rにおけるオブジェクト.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="データの要約2グラフの作成.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
